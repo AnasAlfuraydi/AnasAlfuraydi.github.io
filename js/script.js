@@ -416,10 +416,16 @@ function initDownloadCV() {
 
 // --- Placeholder social links note ---
 function initSocialLinks() {
-  const linkedinHref = "#"; // replace with real LinkedIn URL
-  const githubHref = "#"; // replace with real GitHub URL
-  ["linkedinLink", "footerLinkedin"].forEach((id) => (document.getElementById(id).href = linkedinHref));
-  ["githubLink", "footerGithub"].forEach((id) => (document.getElementById(id).href = githubHref));
+    const linkedinHref = "https://www.linkedin.com/in/anas-adnan/";
+    const githubHref = "https://github.com/AnasAdnan03";
+
+    ["linkedinLink", "footerLinkedin"].forEach((id) => {
+        document.getElementById(id).href = linkedinHref;
+    });
+
+    ["githubLink", "footerGithub"].forEach((id) => {
+        document.getElementById(id).href = githubHref;
+    });
 }
 
 /* ---------------------------------------------------------
