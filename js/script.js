@@ -408,10 +408,11 @@ function initContactForm() {
 
 // --- Download CV placeholder ---
 function initDownloadCV() {
-  document.getElementById("downloadCV").addEventListener("click", (e) => {
-    e.preventDefault();
-    alert("Add your CV file at assets/Anas_Alfuraydi_CV.pdf and point this button to it.");
-  });
+    const cvButton = document.getElementById("downloadCV");
+
+    cvButton.href = "assets/Anas_Adnan_Data_Analyst_CV.pdf";
+    cvButton.target = "_blank";
+    cvButton.rel = "noopener noreferrer";
 }
 
 // --- Placeholder social links note ---
