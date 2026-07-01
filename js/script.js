@@ -1,0 +1,449 @@
+/* =========================================================
+   ANAS ALFURAYDI — PORTFOLIO
+   Site data + interactivity
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   1. DATA
+   To add a new project: add one object to `projectsData`.
+   To add a new gallery screenshot: add one object to `galleryData`.
+   --------------------------------------------------------- */
+
+const projectsData = [
+  {
+    title: "AdventureWorks Sales Intelligence Dashboard",
+    description:
+      "A complete Power BI dashboard covering revenue KPIs, orders, returns, product performance, customer segmentation, and a geographic sales map, with drill-through and interactive filters.",
+    businessValue:
+      "Gives sales leadership a single view to spot underperforming regions and products in minutes instead of hours of manual Excel work.",
+    image: "assets/images/project-adventureworks.svg",
+    tech: ["Power BI", "DAX", "Power Query"],
+    category: "Power BI",
+    links: { github: "#", demo: "#", powerbi: "#" },
+  },
+  {
+    title: "Sales Performance Dashboard",
+    description:
+      "An interactive sales dashboard with KPI cards, dynamic slicers, sales distribution visuals, and a business-storytelling layout highlighting top performing regions.",
+    businessValue:
+      "Helps regional managers compare performance at a glance and justify where to focus the next quarter's budget.",
+    image: "assets/images/project-sales-performance.svg",
+    tech: ["Power BI", "DAX"],
+    category: "Power BI",
+    links: { github: "#", demo: "#", powerbi: "#" },
+  },
+  {
+    title: "Interactive Map of Madinah",
+    description:
+      "Graduation project: a relational SQL database designed for an interactive GIS mapping application, including data modeling, normalization, and query optimization to support analytical workflows.",
+    businessValue:
+      "Provides a normalized, query-optimized foundation that lets a mapping app fetch location data quickly without redundant storage.",
+    image: "assets/images/project-madinah-map.svg",
+    tech: ["SQL", "Database Design", "Data Modeling"],
+    category: "SQL",
+    links: { github: "#", demo: "#", powerbi: null },
+  },
+];
+
+const galleryData = [
+  { image: "assets/images/powerbi-1.svg", caption: "Sales Overview — Revenue & KPI cards" },
+  { image: "assets/images/powerbi-2.svg", caption: "Customer Segmentation view" },
+  { image: "assets/images/powerbi-3.svg", caption: "Regional performance map" },
+  { image: "assets/images/powerbi-4.svg", caption: "Returns & product drill-through" },
+];
+
+const skillsData = [
+  {
+    group: "Business Intelligence",
+    icon: "BI",
+    items: ["Power BI", "Metabase", "Dashboard Development", "Data Storytelling", "KPI Reporting"],
+  },
+  {
+    group: "Programming",
+    icon: "{ }",
+    items: ["Python", "SQL"],
+  },
+  {
+    group: "Python Libraries",
+    icon: "py",
+    items: ["Pandas", "NumPy"],
+  },
+  {
+    group: "Power BI",
+    icon: "fx",
+    items: ["DAX", "Power Query", "Data Modeling"],
+  },
+  {
+    group: "Analytics",
+    icon: "∑",
+    items: ["Data Cleaning", "Data Transformation", "ETL", "EDA", "Trend Analysis", "Data Visualization", "Business Analysis", "Requirement Gathering"],
+  },
+  {
+    group: "Soft Skills",
+    icon: "+",
+    items: ["Leadership", "Communication", "Problem Solving", "Analytical Thinking", "Design Thinking", "Attention to Detail", "Time Management"],
+  },
+];
+
+const certData = [
+  { name: "STEP English Test", note: "Score: 83", status: "done" },
+  { name: "PL-300 — Power BI Data Analyst", note: "In progress", status: "progress" },
+  { name: "DP-900 — Azure Data Fundamentals", note: "In progress", status: "progress" },
+  { name: "Microsoft Fabric", note: "In progress", status: "progress" },
+];
+
+const heroTypedWords = ["dashboards.", "decisions.", "data stories.", "business insight."];
+
+/* ---------------------------------------------------------
+   2. RENDER FUNCTIONS
+   --------------------------------------------------------- */
+
+function renderSkills() {
+  const grid = document.getElementById("skillsGrid");
+  grid.innerHTML = skillsData
+    .map(
+      (s, i) => `
+    <div class="card skill-card reveal" style="transition-delay:${i * 60}ms">
+      <div class="skill-card-head">
+        <span class="skill-icon">${s.icon}</span>
+        <h3>${s.group}</h3>
+      </div>
+      <div class="skill-tags">
+        ${s.items.map((item) => `<span>${item}</span>`).join("")}
+      </div>
+    </div>`
+    )
+    .join("");
+}
+
+function renderProjects(filter = "All", query = "") {
+  const grid = document.getElementById("projectsGrid");
+  const empty = document.getElementById("projectsEmpty");
+  const q = query.trim().toLowerCase();
+
+  const filtered = projectsData.filter((p) => {
+    const matchesFilter = filter === "All" || p.category === filter;
+    const matchesQuery =
+      !q ||
+      p.title.toLowerCase().includes(q) ||
+      p.description.toLowerCase().includes(q) ||
+      p.tech.join(" ").toLowerCase().includes(q);
+    return matchesFilter && matchesQuery;
+  });
+
+  empty.hidden = filtered.length !== 0;
+
+  grid.innerHTML = filtered
+    .map(
+      (p, i) => `
+    <article class="card project-card reveal" style="transition-delay:${i * 70}ms">
+      <div class="project-thumb">
+        <img src="${p.image}" alt="${p.title} preview" loading="lazy" />
+      </div>
+      <div class="project-body">
+        <h3>${p.title}</h3>
+        <p class="project-desc">${p.description}</p>
+        <p class="project-value">${p.businessValue}</p>
+        <div class="project-tech">
+          ${p.tech.map((t) => `<span>${t}</span>`).join("")}
+        </div>
+        <div class="project-links">
+          ${p.links.github ? `<a href="${p.links.github}" target="_blank" rel="noopener">GitHub</a>` : ""}
+          ${p.links.demo ? `<a href="${p.links.demo}" target="_blank" rel="noopener">Live demo</a>` : ""}
+          ${p.links.powerbi ? `<a href="${p.links.powerbi}" target="_blank" rel="noopener" class="primary-link">Power BI</a>` : ""}
+        </div>
+      </div>
+    </article>`
+    )
+    .join("");
+
+  observeReveals();
+}
+
+function renderProjectFilters() {
+  const wrap = document.getElementById("projectFilters");
+  const categories = ["All", ...new Set(projectsData.map((p) => p.category))];
+  wrap.innerHTML = categories
+    .map(
+      (c, i) =>
+        `<button class="filter-chip${i === 0 ? " active" : ""}" data-filter="${c}">${c}</button>`
+    )
+    .join("");
+
+  wrap.addEventListener("click", (e) => {
+    const btn = e.target.closest(".filter-chip");
+    if (!btn) return;
+    wrap.querySelectorAll(".filter-chip").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    const search = document.getElementById("projectSearch").value;
+    renderProjects(btn.dataset.filter, search);
+  });
+}
+
+function renderGallery() {
+  const grid = document.getElementById("powerbiGallery");
+  grid.innerHTML = galleryData
+    .map(
+      (g, i) => `
+    <div class="gallery-item reveal" style="transition-delay:${i * 60}ms">
+      <img src="${g.image}" alt="${g.caption}" loading="lazy" />
+      <div class="gallery-caption">${g.caption}</div>
+    </div>`
+    )
+    .join("");
+}
+
+function renderCertifications() {
+  const list = document.getElementById("certList");
+  list.innerHTML = certData
+    .map(
+      (c, i) => `
+    <div class="card cert-item reveal" style="transition-delay:${i * 60}ms">
+      <div>
+        <h4>${c.name}</h4>
+        <p>${c.note}</p>
+      </div>
+      <span class="cert-status ${c.status}">${c.status === "done" ? "Completed" : "In progress"}</span>
+    </div>`
+    )
+    .join("");
+}
+
+/* ---------------------------------------------------------
+   3. INTERACTIVITY
+   --------------------------------------------------------- */
+
+// --- Theme toggle (persisted, with safe fallback if storage is unavailable) ---
+function getStoredTheme() {
+  try {
+    return localStorage.getItem("aa-theme");
+  } catch (e) {
+    return null;
+  }
+}
+function setStoredTheme(value) {
+  try {
+    localStorage.setItem("aa-theme", value);
+  } catch (e) {
+    /* storage unavailable — theme just won't persist across reloads */
+  }
+}
+
+function initTheme() {
+  const stored = getStoredTheme();
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const theme = stored || (prefersDark ? "dark" : "light");
+  if (theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+
+  document.getElementById("themeToggle").addEventListener("click", () => {
+    const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+    if (isDark) {
+      document.documentElement.removeAttribute("data-theme");
+      setStoredTheme("light");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      setStoredTheme("dark");
+    }
+  });
+}
+
+// --- Mobile menu ---
+function initMobileMenu() {
+  const hamburger = document.getElementById("hamburger");
+  const navWrap = document.getElementById("navWrap");
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("open");
+    navWrap.classList.toggle("menu-open");
+  });
+  document.getElementById("navLinks").addEventListener("click", (e) => {
+    if (e.target.classList.contains("nav-link")) {
+      hamburger.classList.remove("open");
+      navWrap.classList.remove("menu-open");
+    }
+  });
+}
+
+// --- Scroll progress + sticky nav background ---
+function initScrollEffects() {
+  const progress = document.getElementById("scrollProgress");
+  const navWrap = document.getElementById("navWrap");
+  const scrollTopBtn = document.getElementById("scrollTop");
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      const scrolled = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = `${(scrolled / height) * 100}%`;
+      navWrap.classList.toggle("scrolled", scrolled > 10);
+      scrollTopBtn.classList.toggle("visible", scrolled > 500);
+    },
+    { passive: true }
+  );
+
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
+// --- Active section highlighting ---
+function initActiveSection() {
+  const sections = document.querySelectorAll("main section[id]");
+  const links = document.querySelectorAll(".nav-link");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          links.forEach((l) => l.classList.remove("active"));
+          const active = document.querySelector(`.nav-link[data-section="${entry.target.id}"]`);
+          if (active) active.classList.add("active");
+        }
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+  );
+
+  sections.forEach((s) => observer.observe(s));
+}
+
+// --- Reveal-on-scroll (fade in / slide up) ---
+function observeReveals() {
+  const elements = document.querySelectorAll(".reveal:not(.in-view)");
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  elements.forEach((el) => observer.observe(el));
+}
+
+// --- Animated counters (hero KPIs) ---
+function initCounters() {
+  const counters = document.querySelectorAll("[data-counter]");
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseFloat(el.dataset.counter);
+        const prefix = el.dataset.prefix || "";
+        const suffix = el.dataset.suffix || "";
+        const isDecimal = target % 1 !== 0;
+        const duration = 1400;
+        const start = performance.now();
+
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const value = target * eased;
+          el.textContent = `${prefix}${isDecimal ? value.toFixed(1) : Math.round(value).toLocaleString()}${suffix}`;
+          if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        obs.unobserve(el);
+      });
+    },
+    { threshold: 0.4 }
+  );
+  counters.forEach((c) => observer.observe(c));
+}
+
+// --- Typing effect in hero ---
+function initTypingEffect() {
+  const el = document.getElementById("heroTyped");
+  let wordIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function loop() {
+    const word = heroTypedWords[wordIndex];
+
+    if (!deleting) {
+      charIndex++;
+      el.textContent = word.slice(0, charIndex);
+      if (charIndex === word.length) {
+        deleting = true;
+        setTimeout(loop, 1500);
+        return;
+      }
+    } else {
+      charIndex--;
+      el.textContent = word.slice(0, charIndex);
+      if (charIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % heroTypedWords.length;
+      }
+    }
+    setTimeout(loop, deleting ? 40 : 75);
+  }
+  loop();
+}
+
+// --- Project search ---
+function initProjectSearch() {
+  const input = document.getElementById("projectSearch");
+  input.addEventListener("input", () => {
+    const activeFilter = document.querySelector(".filter-chip.active");
+    renderProjects(activeFilter ? activeFilter.dataset.filter : "All", input.value);
+  });
+}
+
+// --- Contact form (front-end only; wire up to a backend or form service when deploying) ---
+function initContactForm() {
+  const form = document.getElementById("contactForm");
+  const note = document.getElementById("formNote");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    note.hidden = false;
+    form.reset();
+  });
+}
+
+// --- Download CV placeholder ---
+function initDownloadCV() {
+  document.getElementById("downloadCV").addEventListener("click", (e) => {
+    e.preventDefault();
+    alert("Add your CV file at assets/Anas_Alfuraydi_CV.pdf and point this button to it.");
+  });
+}
+
+// --- Placeholder social links note ---
+function initSocialLinks() {
+  const linkedinHref = "#"; // replace with real LinkedIn URL
+  const githubHref = "#"; // replace with real GitHub URL
+  ["linkedinLink", "footerLinkedin"].forEach((id) => (document.getElementById(id).href = linkedinHref));
+  ["githubLink", "footerGithub"].forEach((id) => (document.getElementById(id).href = githubHref));
+}
+
+/* ---------------------------------------------------------
+   4. INIT
+   --------------------------------------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  renderSkills();
+  renderProjectFilters();
+  renderProjects();
+  renderGallery();
+  renderCertifications();
+
+  initTheme();
+  initMobileMenu();
+  initScrollEffects();
+  initActiveSection();
+  initCounters();
+  initTypingEffect();
+  initProjectSearch();
+  initContactForm();
+  initDownloadCV();
+  initSocialLinks();
+
+  observeReveals();
+});

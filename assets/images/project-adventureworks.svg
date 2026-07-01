@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+<defs>
+<linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#0F172A"/><stop offset="1" stop-color="#1E293B"/>
+</linearGradient>
+</defs>
+<rect width="800" height="500" fill="url(#bg1)"/>
+<rect x="40" y="40" width="220" height="90" rx="12" fill="#1E2A41"/>
+<text x="60" y="75" fill="#94A3B8" font-family="Arial" font-size="14">Total Revenue</text>
+<text x="60" y="108" fill="#60A5FA" font-family="Arial" font-size="28" font-weight="bold">$12.4M</text>
+<rect x="280" y="40" width="220" height="90" rx="12" fill="#1E2A41"/>
+<text x="300" y="75" fill="#94A3B8" font-family="Arial" font-size="14">Orders</text>
+<text x="300" y="108" fill="#3B82F6" font-family="Arial" font-size="28" font-weight="bold">48,210</text>
+<rect x="520" y="40" width="220" height="90" rx="12" fill="#1E2A41"/>
+<text x="540" y="75" fill="#94A3B8" font-family="Arial" font-size="14">Return Rate</text>
+<text x="540" y="108" fill="#F87171" font-family="Arial" font-size="28" font-weight="bold">2.3%</text>
+<rect x="40" y="150" width="460" height="310" rx="12" fill="#1E2A41"/>
+<polyline points="70,400 150,360 230,380 310,300 390,330 470,250" fill="none" stroke="#3B82F6" stroke-width="4"/>
+<circle cx="470" cy="250" r="5" fill="#60A5FA"/>
+<rect x="520" y="150" width="240" height="310" rx="12" fill="#1E2A41"/>
+<circle cx="640" cy="260" r="80" fill="none" stroke="#3B82F6" stroke-width="22" stroke-dasharray="180 320" stroke-linecap="round"/>
+<circle cx="640" cy="260" r="80" fill="none" stroke="#60A5FA" stroke-width="22" stroke-dasharray="90 410" stroke-dashoffset="-180" stroke-linecap="round"/>
+</svg>

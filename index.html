@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anas Alfuraydi — Data Analyst & BI Developer</title>
+  <meta name="description" content="Anas Alfuraydi — Data Analyst and BI Developer in Riyadh, Saudi Arabia. Building dashboards, SQL data models, and reporting systems that turn raw data into business decisions." />
+  <meta name="keywords" content="Data Analyst, BI Analyst, Power BI, SQL, Python, Riyadh, Saudi Arabia, Business Intelligence" />
+  <meta name="author" content="Anas Adnan Alfuraydi" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Anas Alfuraydi — Data Analyst & BI Developer" />
+  <meta property="og:description" content="Turning raw data into dashboards, models, and decisions. Portfolio of Power BI, SQL, and Python work." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav-wrap" id="navWrap">
+    <nav class="nav container">
+      <a href="#hero" class="nav-logo">A<span>A</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+        <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+        <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+        <li><a href="#education" class="nav-link" data-section="education">Education</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm nav-cta">Let's talk</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Riyadh, Saudi Arabia · Open to work</p>
+          <h1 class="hero-title">
+            Anas Alfuraydi builds
+            <span class="hero-typed-wrap">data into <span class="hero-typed" id="heroTyped"></span><span class="cursor">|</span></span>
+          </h1>
+          <p class="hero-sub">
+            Data Analyst &amp; BI Developer turning raw, messy datasets into dashboards,
+            data models, and decisions — with Power BI, SQL, and Python.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#projects" class="btn btn-primary">View my projects</a>
+            <a href="#" class="btn btn-ghost" id="downloadCV">Download CV</a>
+          </div>
+          <div class="hero-trust">
+            <span class="trust-label">Tools I work in daily</span>
+            <div class="trust-icons">
+              <span>SQL</span><span>Power BI</span><span>Python</span><span>DAX</span><span>Excel</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="dash-card dash-main">
+            <div class="dash-card-head">
+              <span class="dash-dot"></span>
+              <span class="dash-title">Sales Overview</span>
+              <span class="dash-live">Live</span>
+            </div>
+            <div class="dash-kpis">
+              <div class="dash-kpi">
+                <span class="kpi-label">Revenue</span>
+                <span class="kpi-value" data-counter="12.4" data-prefix="$" data-suffix="M">$0M</span>
+              </div>
+              <div class="dash-kpi">
+                <span class="kpi-label">Orders</span>
+                <span class="kpi-value" data-counter="48210" data-suffix="">0</span>
+              </div>
+              <div class="dash-kpi">
+                <span class="kpi-label">Growth</span>
+                <span class="kpi-value accent-green" data-counter="18" data-prefix="+" data-suffix="%">+0%</span>
+              </div>
+            </div>
+            <svg class="dash-sparkline" viewBox="0 0 280 80" preserveAspectRatio="none">
+              <polyline points="0,60 40,45 80,55 120,30 160,40 200,15 240,25 280,10" fill="none" stroke="#3B82F6" stroke-width="3" />
+            </svg>
+          </div>
+
+          <div class="dash-card dash-float dash-float-1">
+            <span class="kpi-label">Returns</span>
+            <span class="kpi-value-sm">2.3%</span>
+          </div>
+          <div class="dash-card dash-float dash-float-2">
+            <span class="kpi-label">DAX measures</span>
+            <span class="kpi-value-sm">15+</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="section-eyebrow">About</p>
+        <h2 class="section-title">From raw tables to business decisions</h2>
+        <div class="about-grid">
+          <p class="about-text">
+            I'm a recent Computer Information Systems graduate from Taibah University, based in
+            Riyadh, focused on data analytics and business intelligence. I'm drawn to the moment a
+            messy spreadsheet turns into a dashboard someone actually uses to make a decision —
+            that's the work I want to keep doing.
+          </p>
+          <p class="about-text">
+            My toolkit centers on Power BI, SQL, and Python, and I've spent my internship and
+            personal projects building dashboards, cleaning real-world datasets, and designing
+            data models that hold up under scrutiny. I care about getting the numbers right before
+            making them look good, and I'm currently building toward certifications in PL-300,
+            DP-900, and Microsoft Fabric to deepen that foundation.
+          </p>
+          <ul class="about-points">
+            <li>Dashboard development &amp; data storytelling</li>
+            <li>SQL data modeling &amp; query optimization</li>
+            <li>ETL, data cleaning &amp; validation at scale</li>
+            <li>Translating stakeholder questions into KPIs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <p class="section-eyebrow">Skills</p>
+        <h2 class="section-title">What I work with</h2>
+
+        <div class="skills-grid" id="skillsGrid">
+          <!-- Generated by script.js from skillsData -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="container">
+        <p class="section-eyebrow">Experience</p>
+        <h2 class="section-title">Where I've worked</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content card reveal">
+              <div class="timeline-head">
+                <h3>Data Analyst Intern</h3>
+                <span class="timeline-date">Jun 2025 — Aug 2025</span>
+              </div>
+              <p class="timeline-company">Osarh · Arabic EdTech Platform</p>
+              <ul class="timeline-list">
+                <li>Analyzed operational datasets to identify KPIs and growth trends across the platform.</li>
+                <li>Built four interactive dashboards used by the team to track performance.</li>
+                <li>Reduced manual reporting time by approximately 30% by automating recurring reports.</li>
+                <li>Cleaned and validated datasets containing more than 5,000 records for accuracy.</li>
+                <li>Presented insights directly to the team leader to support business decisions.</li>
+                <li>Worked cross-functionally in a fast-moving startup environment using Excel and Metabase.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section section-alt" id="projects">
+      <div class="container">
+        <p class="section-eyebrow">Projects</p>
+        <h2 class="section-title">Portfolio projects</h2>
+        <p class="section-sub">A selection of dashboards, data models, and analysis work. Adding a new project only requires editing one object in <code>js/script.js</code>.</p>
+
+        <div class="project-controls">
+          <div class="project-search">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="projectSearch" placeholder="Search projects…" aria-label="Search projects" />
+          </div>
+          <div class="project-filters" id="projectFilters">
+            <!-- Generated by script.js -->
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Generated by script.js from projectsData -->
+        </div>
+
+        <p class="projects-empty" id="projectsEmpty" hidden>No projects match your search. Try a different keyword.</p>
+      </div>
+    </section>
+
+    <!-- ============ POWER BI SHOWCASE ============ -->
+    <section class="section" id="showcase">
+      <div class="container">
+        <p class="section-eyebrow">Showcase</p>
+        <h2 class="section-title">Power BI dashboards</h2>
+        <p class="section-sub">A closer look at dashboard screenshots. Drop a new image into the gallery array in <code>js/script.js</code> and it appears here automatically.</p>
+
+        <div class="gallery" id="powerbiGallery">
+          <!-- Generated by script.js from galleryData -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION & CERTIFICATIONS ============ -->
+    <section class="section section-alt" id="education">
+      <div class="container education-grid">
+        <div>
+          <p class="section-eyebrow">Education</p>
+          <h2 class="section-title">Academic background</h2>
+          <div class="card edu-card reveal">
+            <h3>Bachelor of Computer Information Systems</h3>
+            <p class="edu-school">Taibah University</p>
+            <p class="edu-date">Expected Graduation — June 2026</p>
+          </div>
+        </div>
+
+        <div id="certificationsCol">
+          <p class="section-eyebrow">Certifications</p>
+          <h2 class="section-title">Certifications &amp; learning</h2>
+          <div class="cert-list" id="certList">
+            <!-- Generated by script.js from certData -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div>
+          <p class="section-eyebrow">Contact</p>
+          <h2 class="section-title">Let's work together</h2>
+          <p class="section-sub">
+            Open to Data Analyst, BI Analyst, and Reporting Analyst roles in Riyadh and remotely.
+            Feel free to reach out — I usually reply within a day.
+          </p>
+
+          <div class="contact-list">
+            <a href="mailto:alfuraydianas@gmail.com" class="contact-row">
+              <span class="contact-icon">✉</span>
+              <span>alfuraydianas@gmail.com</span>
+            </a>
+            <a href="tel:+966533172147" class="contact-row">
+              <span class="contact-icon">☎</span>
+              <span>+966 53 317 2147</span>
+            </a>
+            <a href="#" class="contact-row" id="linkedinLink">
+              <span class="contact-icon">in</span>
+              <span>LinkedIn — Anas Alfuraydi</span>
+            </a>
+            <a href="#" class="contact-row" id="githubLink">
+              <span class="contact-icon">⌥</span>
+              <span>GitHub — anasalfuraydi</span>
+            </a>
+          </div>
+        </div>
+
+        <form class="card contact-form reveal" id="contactForm">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required />
+
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="you@company.com" required />
+
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-input" id="message" name="message" rows="4" placeholder="Tell me about the role or project…" required></textarea>
+
+          <button type="submit" class="btn btn-primary form-submit">Send message</button>
+          <p class="form-note" id="formNote" hidden>Thanks — your message has been noted. I'll get back to you by email shortly.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#hero" class="nav-logo footer-logo">A<span>A</span></a>
+        <p class="footer-tagline">Data Analyst &amp; BI Developer based in Riyadh, Saudi Arabia.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" id="footerLinkedin">LinkedIn</a>
+        <a href="#" id="footerGithub">GitHub</a>
+        <a href="mailto:alfuraydianas@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Anas Adnan Alfuraydi. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
