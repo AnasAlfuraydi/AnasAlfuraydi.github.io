@@ -446,7 +446,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollEffects();
   initActiveSection();
   initCounters();
-  initTypingEffect();
+  // initTypingEffect();
   initProjectSearch();
   initContactForm();
   initDownloadCV();
