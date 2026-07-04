@@ -458,30 +458,55 @@ function initImageLightbox() {
     const closeButton = lightbox.querySelector(".image-lightbox-close");
 
     document.addEventListener("click", (e) => {
-        const image = e.target.closest(".project-card img, .gallery-card img, .dashboard-gallery img, .gallery-grid img");
+        const trigger = e.target.closest(
+            "img, .project-card, .gallery-card, .gallery-item, .gallery-tile, .showcase-card"
+        );
+
+        if (!trigger) return;
+
+        const image = trigger.tagName === "IMG"
+            ? trigger
+            : trigger.querySelector("img");
 
         if (!image) return;
 
+        const isPortfolioImage =
+            image.closest("#projects") ||
+            image.closest("#gallery") ||
+            image.closest("#showcase") ||
+            image.closest(".projects-grid") ||
+            image.closest(".gallery-grid") ||
+            image.closest(".showcase") ||
+            image.closest(".gallery-card") ||
+            image.closest(".gallery-item") ||
+            image.closest(".gallery-tile") ||
+            image.closest(".showcase-card");
+
+        if (!isPortfolioImage) return;
+
         lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt || "Dashboard preview";
         lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
     });
 
-    closeButton.addEventListener("click", () => {
+    function closeLightbox() {
         lightbox.classList.remove("active");
         lightboxImage.src = "";
-    });
+        document.body.style.overflow = "";
+    }
+
+    closeButton.addEventListener("click", closeLightbox);
 
     lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) {
-            lightbox.classList.remove("active");
-            lightboxImage.src = "";
+            closeLightbox();
         }
     });
 
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
-            lightbox.classList.remove("active");
-            lightboxImage.src = "";
+            closeLightbox();
         }
     });
 }
