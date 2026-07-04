@@ -202,7 +202,7 @@ function renderGallery() {
     .map(
       (g, i) => `
     <div class="gallery-item reveal" style="transition-delay:${i * 60}ms">
-      <img src="${g.image}" alt="${g.caption}" loading="lazy" />
+      <img class="lightbox-trigger" src="${g.image}" alt="${g.caption}" loading="lazy" />
       <div class="gallery-caption">${g.caption}</div>
     </div>`
     )
@@ -457,38 +457,16 @@ function initImageLightbox() {
     const lightboxImage = lightbox.querySelector("img");
     const closeButton = lightbox.querySelector(".image-lightbox-close");
 
-    document.addEventListener("click", (e) => {
-        const trigger = e.target.closest(
-            "img, .project-card, .gallery-card, .gallery-item, .gallery-tile, .showcase-card"
-        );
+document.addEventListener("click", (e) => {
+    const image = e.target.closest(".lightbox-trigger, .project-card img");
 
-        if (!trigger) return;
+    if (!image) return;
 
-        const image = trigger.tagName === "IMG"
-            ? trigger
-            : trigger.querySelector("img");
-
-        if (!image) return;
-
-        const isPortfolioImage =
-            image.closest("#projects") ||
-            image.closest("#gallery") ||
-            image.closest("#showcase") ||
-            image.closest(".projects-grid") ||
-            image.closest(".gallery-grid") ||
-            image.closest(".showcase") ||
-            image.closest(".gallery-card") ||
-            image.closest(".gallery-item") ||
-            image.closest(".gallery-tile") ||
-            image.closest(".showcase-card");
-
-        if (!isPortfolioImage) return;
-
-        lightboxImage.src = image.src;
-        lightboxImage.alt = image.alt || "Dashboard preview";
-        lightbox.classList.add("active");
-        document.body.style.overflow = "hidden";
-    });
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt || "Dashboard preview";
+    lightbox.classList.add("active");
+    document.body.style.overflow = "hidden";
+});
 
     function closeLightbox() {
         lightbox.classList.remove("active");
