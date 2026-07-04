@@ -762,3 +762,41 @@ code {
   .timeline-content { padding: 22px; }
   .dash-float-1, .dash-float-2 { display: none; }
 }
+
+.image-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.92);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 32px;
+}
+
+.image-lightbox.active {
+    display: flex;
+}
+
+.image-lightbox img {
+    max-width: 95%;
+    max-height: 90vh;
+    border-radius: 16px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+}
+
+.image-lightbox-close {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    color: white;
+    font-size: 36px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.project-card img,
+.gallery-card img,
+.dashboard-gallery img {
+    cursor: zoom-in;
+}
