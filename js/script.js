@@ -11,16 +11,20 @@
 
 const projectsData = [
   {
-    title: "AdventureWorks Sales Intelligence Dashboard",
-    description:
-      "A complete Power BI dashboard covering revenue KPIs, orders, returns, product performance, customer segmentation, and a geographic sales map, with drill-through and interactive filters.",
-    businessValue:
-      "Gives sales leadership a single view to spot underperforming regions and products in minutes instead of hours of manual Excel work.",
-    image: "assets/images/project-adventureworks.svg",
-    tech: ["Power BI", "DAX", "Power Query"],
-    category: "Power BI",
-    links: { github: "#", demo: "#", powerbi: "#" },
+  title: "AdventureWorks Sales Intelligence Dashboard",
+  description:
+    "Interactive Power BI dashboard analyzing sales, product performance, customer behavior, and geographic revenue trends using DAX, Power Query, and data modeling.",
+  businessValue:
+    "Provides executives with a clear view of revenue, profit, orders, returns, top products, customer performance, and country-level sales insights.",
+  image: "assets/images/adventureworks-executive.png",
+  tech: ["Power BI", "DAX", "Power Query", "Data Modeling"],
+  category: "Power BI",
+  links: {
+    github: "#",
+    demo: "#",
+    powerbi: "#"
   },
+},
   {
     title: "Sales Performance Dashboard",
     description:
@@ -46,10 +50,22 @@ const projectsData = [
 ];
 
 const galleryData = [
-  { image: "assets/images/powerbi-1.svg", caption: "Sales Overview — Revenue & KPI cards" },
-  { image: "assets/images/powerbi-2.svg", caption: "Customer Segmentation view" },
-  { image: "assets/images/powerbi-3.svg", caption: "Regional performance map" },
-  { image: "assets/images/powerbi-4.svg", caption: "Returns & product drill-through" },
+  {
+    image: "assets/images/adventureworks-executive.png",
+    caption: "Executive Overview — Revenue, Profit, Orders, Returns & Product KPIs"
+  },
+  {
+    image: "assets/images/adventureworks-geographic.png",
+    caption: "Geographic Sales Analysis — Orders and Revenue by Country"
+  },
+  {
+    image: "assets/images/adventureworks-product.png",
+    caption: "Product Analysis — Targets, Profit Trend, Returns & Top Products"
+  },
+  {
+    image: "assets/images/adventureworks-customer.png",
+    caption: "Customer Performance Analysis — Customer Trends, Segments & Details"
+  }
 ];
 
 const skillsData = [
