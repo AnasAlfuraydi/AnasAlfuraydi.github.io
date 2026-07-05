@@ -20,9 +20,9 @@ const projectsData = [
   tech: ["Power BI", "DAX", "Power Query", "Data Modeling"],
   category: "Power BI",
   links: {
-    github: "#",
-    demo: "#",
-    powerbi: "#"
+    github: "https://github.com/AnasAdnan03/AdventureWorks-Sales-Intelligence-Dashboard",
+    demo: null,
+    powerbi:null
   },
 },
   {
@@ -34,7 +34,7 @@ const projectsData = [
     image: "assets/images/project-sales-performance.svg",
     tech: ["Power BI", "DAX"],
     category: "Power BI",
-    links: { github: "#", demo: "#", powerbi: "#" },
+    links: { github: "#", demo: null, powerbi: "#" },
   },
   {
     title: "Interactive Map of Madinah",
@@ -45,7 +45,7 @@ const projectsData = [
     image: "assets/images/project-madinah-map.svg",
     tech: ["SQL", "Database Design", "Data Modeling"],
     category: "SQL",
-    links: { github: "#", demo: "#", powerbi: null },
+    links: { github: "#", demo: null, powerbi: null },
   },
 ];
 
