@@ -476,7 +476,7 @@ document.addEventListener("click", (e) => {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
 
-  renderSkills();
+ // renderSkills();
   renderProjectFilters();
   renderProjects();
   renderGallery();
