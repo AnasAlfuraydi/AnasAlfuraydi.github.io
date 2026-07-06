@@ -210,7 +210,11 @@ function renderProjects(filter = "All", query = "") {
 
 function renderProjectFilters() {
   const wrap = document.getElementById("projectFilters");
-  const categories = ["All", ...new Set(projectsData.map((p) => p.category))];
+  const categories = [
+    "All",
+    ...new Set(projectsData.map((p) => p.category).filter(Boolean))
+  ];
+
   wrap.innerHTML = categories
     .map(
       (c, i) =>
