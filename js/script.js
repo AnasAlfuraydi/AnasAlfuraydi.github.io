@@ -19,11 +19,11 @@ const projectsData = [
   image: "assets/images/adventureworks-executive.png",
   tech: ["Power BI", "DAX", "Power Query", "Data Modeling"],
   category: "Power BI",
-  links: {
-    github: "https://github.com/AnasAdnan03/AdventureWorks-Sales-Intelligence-Dashboard",
-    demo: null,
-    powerbi:null
-  },
+links: {
+  github: "https://github.com/AnasAdnan03/AdventureWorks-Sales-Intelligence-Dashboard",
+  demo: null,
+  powerbi: "https://github.com/AnasAdnan03/AdventureWorks-Sales-Intelligence-Dashboard/raw/main/AdventureWorks-Sales-Intelligence.pbix"
+},
 },
   {
     title: "Sales Performance Dashboard",
@@ -37,17 +37,17 @@ const projectsData = [
     links: { github: "#", demo: null, powerbi: "#" },
   },
 {
-  title: "Discover Madinah — Interactive GIS & Database Project",
+  title: "Discover Madinah — Graduation GIS & Database Project",
   description:
-    "A web-based interactive GIS map for exploring attractions in Madinah, supported by a structured relational database, location data, search filters, place details, reviews, and chatbot assistance.",
+    "Graduation project: a web-based interactive GIS map for exploring attractions in Madinah, supported by a structured relational database, location data, search filters, place details, reviews, and chatbot assistance.",
   businessValue:
     "Helps users discover religious, cultural, entertainment, and restaurant locations through organized geographic data, filtering, and accessible place information.",
   image: "assets/images/madinah-map.png",
   tech: ["SQL", "Database Design", "GIS", "JavaScript", "Supabase"],
   category: "SQL",
   links: {
-    github: "#",
-    demo: "https://discover-madina-2-production.up.railway.app/index.html",
+    github: "https://github.com/AnasAdnan03/Discover-Madinah-GIS-Database",
+    demo: "https://discover-madina-2-production.up.railway.app/index.html?lang=ar",
     powerbi: null
   },
 },,
