@@ -20,7 +20,7 @@ const projectsData = [
   tech: ["Power BI", "DAX", "Power Query", "Data Modeling"],
   category: "Power BI",
 links: {
-  github: "https://github.com/AnasAdnan03/AdventureWorks-Sales-Intelligence-Dashboard",
+github: "https://github.com/AnasAlfuraydi/AdventureWorks-Sales-Intelligence-Dashboard",
   demo: null,
   powerbi: "https://github.com/AnasAdnan03/AdventureWorks-Sales-Intelligence-Dashboard/raw/main/AdventureWorks-Sales-Intelligence.pbix"
 },
@@ -46,7 +46,7 @@ links: {
   tech: ["SQL", "Database Design", "GIS", "JavaScript", "Supabase"],
   category: "SQL",
   links: {
-    github: "https://github.com/AnasAdnan03/Discover-Madinah-GIS-Database",
+github: "https://github.com/AnasAlfuraydi/Discover-Madinah-GIS-Database",
     demo: "https://discover-madina-2-production.up.railway.app/index.html?lang=ar",
     powerbi: null
   },
@@ -470,7 +470,7 @@ function initDownloadCV() {
 // --- Placeholder social links note ---
 function initSocialLinks() {
     const linkedinHref = "https://www.linkedin.com/in/anas-adnan/";
-    const githubHref = "https://github.com/AnasAdnan03";
+       const githubHref = "https://github.com/AnasAlfuraydi";
 
     ["linkedinLink", "footerLinkedin"].forEach((id) => {
         document.getElementById(id).href = linkedinHref;
