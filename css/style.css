@@ -803,3 +803,11 @@ code {
 .lightbox-trigger {
     cursor: zoom-in;
 }
+.hero-illustration {
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  object-fit: contain;
+}
