@@ -26,16 +26,28 @@ github: "https://github.com/AnasAlfuraydi/AdventureWorks-Sales-Intelligence-Dash
 },
 },
   {
-    title: "Sales Performance Dashboard",
-    description:
-      "An interactive sales dashboard with KPI cards, dynamic slicers, sales distribution visuals, and a business-storytelling layout highlighting top performing regions.",
-    businessValue:
-      "Helps regional managers compare performance at a glance and justify where to focus the next quarter's budget.",
-    image: "assets/images/project-sales-performance.svg",
-    tech: ["Power BI", "DAX"],
-    category: "Power BI",
-    links: { github: "#", demo: null, powerbi: "#" },
-  },
+  title: "Sales Performance Analytics — End-to-End Data Project",
+  description:
+    "End-to-end sales analytics project where Python, Pandas, NumPy, and Matplotlib were used to clean, transform, and explore the data before building an interactive Power BI dashboard with DAX measures, data modeling, and business insights.",
+  businessValue:
+    "Transforms raw sales data into reliable analysis and actionable recommendations by combining Python-based data preparation with interactive Power BI reporting.",
+  image: "assets/images/sales-executive-overview.png",
+  tech: [
+    "Python",
+    "Pandas",
+    "NumPy",
+    "Matplotlib",
+    "Power BI",
+    "DAX",
+    "Power Query"
+  ],
+  category: "Power BI",
+ links: {
+  github: "https://github.com/AnasAlfuraydi/Sales-Performance-Power-BI-Dashboard",
+  demo: null,
+  powerbi: "https://github.com/AnasAlfuraydi/Sales-Performance-Power-BI-Dashboard/raw/main/sales-performance-dashboard.pbix"
+},
+},
 {
   title: "Discover Madinah — Graduation GIS & Database Project",
   description:
